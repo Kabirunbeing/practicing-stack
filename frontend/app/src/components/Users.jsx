@@ -13,18 +13,18 @@ const Users = () => {
   }, []);
 
   return (
-    <div>
-      <h2>User List</h2>
+    <div className="max-w-2xl mx-auto mt-10 p-4 border rounded-lg shadow-md">
+      <h2 className="text-2xl font-bold mb-4 text-center">User List</h2>
       {users.length > 0 ? (
-        <ul>
+        <ul className="list-disc pl-5">
           {users.map((user) => (
-            <li key={user._id}>
-              {user.name} - {user.email}
+            <li key={user._id} className="mb-2">
+              <span className="font-semibold">{user.name}</span> - {user.email}
             </li>
           ))}
         </ul>
       ) : (
-        <p>No users found</p>
+        <p className="text-center text-gray-500">No users found</p>
       )}
     </div>
   );

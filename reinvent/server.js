@@ -3,7 +3,9 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const productRoutes = require('./routes/productRoutes');
-const userRoutes = require('./routes/userRoutes');  // New User Routes
+const userRoutes = require('./routes/userRoutes');
+const orderRoutes = require('./routes/orderRoutes');  
+const reviewRoutes = require('./routes/reviewRoutes'); 
 
 dotenv.config();
 
@@ -26,7 +28,13 @@ app.get('/check', (req, res) => {
 app.use('/api/products', productRoutes);
 
 // User routes
-app.use('/api/users', userRoutes);  // Add User Routes
+app.use('/api/users', userRoutes);
+
+// Order routes
+app.use('/api/orders', orderRoutes);  // Add Order Routes
+
+// Review routes
+app.use('/api/reviews', reviewRoutes); // Add Review Routes
 
 // Start the server
 app.listen(PORT, () => {

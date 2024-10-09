@@ -1,5 +1,7 @@
 const API_URL = "http://localhost:5000/api"; // Adjust if the backend URL differs
 
+// Users API
+
 // Fetch all users
 export const fetchUsers = async () => {
   const response = await fetch(`${API_URL}/users`);
@@ -24,6 +26,8 @@ export const createUser = async (userData) => {
   return response.json();
 };
 
+// Products API
+
 // Fetch all products
 export const fetchProducts = async () => {
   const response = await fetch(`${API_URL}/products`);
@@ -38,6 +42,46 @@ export const createProduct = async (productData) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(productData),
+  });
+  return response.json();
+};
+
+// Reviews API
+
+// Fetch all reviews
+export const fetchReviews = async () => {
+  const response = await fetch(`${API_URL}/reviews`);
+  return response.json();
+};
+
+// Create a new review
+export const createReview = async (reviewData) => {
+  const response = await fetch(`${API_URL}/reviews`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(reviewData),
+  });
+  return response.json();
+};
+
+// Orders API
+
+// Fetch all orders
+export const fetchOrders = async () => {
+  const response = await fetch(`${API_URL}/orders`);
+  return response.json();
+};
+
+// Create a new order
+export const createOrder = async (orderData) => {
+  const response = await fetch(`${API_URL}/orders`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(orderData),
   });
   return response.json();
 };
